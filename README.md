@@ -76,13 +76,13 @@
           针对图片或文本进行链接
            - 对需要链接的文本使用[],链接的URL使用()`
           
-            示例如下：
-            ```            
-            [Baidu](www.baidu.com) 
-            ```        
-            **效果：**
+             示例如下：
+             ```            
+             [Baidu](www.baidu.com)
+             ```        
+             **效果：**
             
-            [Baidu](www.baidu.com)              
+             [Baidu](https://baidu.com/)              
           
           - 对需要链接的图片使用![]，链接的URL使用()
             
