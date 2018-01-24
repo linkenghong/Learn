@@ -70,7 +70,6 @@
             code3
             ```
 
-          
     4.  链接
           
           针对图片或文本进行链接
@@ -94,31 +93,122 @@
             
             ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
           
-          - 引用大段代码时则需要三个反引号
+    5.  列表
+          
+          针对文本内容进行列表排序图片或文本进行链接
+           - 对无序列表，可以在每个列表项前加星号(*)或横线(-)`
+          
+             示例如下：
+             ```            
+             [Baidu](www.baidu.com)
+             ```        
+             **效果：**
+            
+             [Baidu](https://baidu.com/)              
+          
+          - 对需要链接的图片使用![]，链接的URL使用()
             
             示例如下：
-            
-            ``` 
-                ```  
-                code1
-                code2
-                code3
-                ```
             ```
-            
+            ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+            ```
             **效果：**
-            ```
-            code1
-            code2
-            code3
-            ```You can create an inline link by wrapping link text in brackets [ ], and then wrapping the URL in parentheses ( ). You can also use the keyboard shortcut command + k to create a link.
-          
-          样式 | 语句 | 示例 | 效果
-          ------------ | ------------- | ------------ | ------------- 
-          加粗 | `** **` or `__ __` | `**Bold**` or `__Bold__` | **Bold** or __Bold__
-          斜体 | `* *` or `_ _` | `*Italic*` or `_Italic_` | *Italic* or _Italic_
-          划线 | `~~ ~~` | `~~Strikethrough~~` | ~~Strikethrough~~ 
-          混合 | `** **` and `__ __` | `**Bold and _Italic_**` | **Bold and _Italic_**
-      
+            
+            ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+无序列表
+
+可以在每个列表项前加星号(*)或横线(-)
+
+1
+2
+3
+4
+5
+6
+7
+
+	
+
+* 项目一
+* 项目二
+* 项目三
+
+- 项目一
+- 项目二
+- 项目三
+
+    项目一
+    项目二
+    项目三
+
+    项目一
+    项目二
+    项目三
+
+2.2 有序列表
+
+在每个项目前增加数字和句点(英文)即可.
+
+1
+2
+3
+
+	
+
+1. 项目一
+2. 项目二
+3. 项目三
+
+    项目一
+    项目二
+    项目三
+
+2.3 嵌套列表
+
+在每个项目前增加两个空格缩进
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+
+	
+
+1. 项目一
+  1. 嵌套有序列表项目一
+  2. 嵌套有序列表项目二
+    - 嵌套无序列表项目一
+    - 嵌套无序列表项目二
+    - 嵌套无序列表项目三
+      1. 多级嵌套有序列表项目一
+      2. 多级嵌套有序列表项目二
+        - 嵌套无序列表项目一
+        - 嵌套无序列表项目二
+        - 嵌套无序列表项目三
+2. 项目二
+3. 项目三
+
+    项目一
+        嵌套有序列表项目一
+        嵌套有序列表项目二
+            嵌套无序列表项目一
+            嵌套无序列表项目二
+            嵌套无序列表项目三
+            多级嵌套有序列表项目一
+            多级嵌套有序列表项目二
+                嵌套无序列表项目一
+                嵌套无序列表项目二
+                嵌套无序列表项目三
+    项目二
+    项目三
 
 
