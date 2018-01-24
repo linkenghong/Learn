@@ -150,3 +150,23 @@
 	       2. file2
 	           1. file2-1
 		       2. file2-2
+
+          针对嵌套列表，可以在子项前空2格
+          
+             示例如下:
+	       ```
+	       1. file1
+	           - file1-1
+		       - file1-2
+	       2. file2
+	           - file2-1
+		       - file2-2
+	       ```
+	     
+	     效果如下：
+	       1. file1
+	           - file1-1
+		      - file1-2
+	       2. file2
+	           - file2-1
+		      - file2-2
