@@ -108,13 +108,7 @@
           
           - 对需要链接的图片使用![]，链接的URL使用()
             
-            示例如下：
-            ```
-            ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
-            ```
-            **效果：**
-            
-            ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+
 无序列表
 
 可以在每个列表项前加星号(*)或横线(-)
