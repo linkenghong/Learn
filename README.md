@@ -31,34 +31,87 @@
           
     3.  **引用**
           
-          引用文本时可在前面加`>`
+          - 引用文本时可在前面加`>`
           
-          示例如下：
-          ```            
-            语句：
-            > 引用            
-          ```        
+            示例如下：
+            ```            
+            > 引用 
+            ```        
+            **效果：**
+            
+            > 引用             
+          
+          - 引用代码时可使用` `` `
+            
+            示例如下：
+            ```
+            文本中有句`代码`
+            ```
+            **效果：**
+            
+            文本中有句`代码`
+          
+          - 引用大段代码时则需要三个反引号
+            
+            示例如下：
+            
+            ``` 
+                ```  
+                code1
+                code2
+                code3
+                ```
+            ```
+            
+            **效果：**
+            ```
+            code1
+            code2
+            code3
+            ```
 
-          **效果：**
           
-          语句：
-          > 引用             
+    4.  链接
           
-          引用代码时可使用` ` ` `
+          针对图片或文本进行链接
+           - 对需要链接的文本使用[],链接的URL使用()`
           
-          示例如下：
-           
-           ```
-           文本中有句`代码`
-           ```
-          **效果：**
-           
-          文本中有句`代码`
+            示例如下：
+            ```            
+            [Baidu](www.baidu.com) 
+            ```        
+            **效果：**
+            
+            [Baidu](www.baidu.com)              
           
+          - 对需要链接的图片使用![]，链接的URL使用()
+            
+            示例如下：
+            ```
+            ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+            ```
+            **效果：**
+            
+            ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
           
-    4.  引用
-          
-          针对文字加粗、斜体、划线、混合等模式见下表
+          - 引用大段代码时则需要三个反引号
+            
+            示例如下：
+            
+            ``` 
+                ```  
+                code1
+                code2
+                code3
+                ```
+            ```
+            
+            **效果：**
+            ```
+            code1
+            code2
+            code3
+            ```You can create an inline link by wrapping link text in brackets [ ], and then wrapping the URL in parentheses ( ). You can also use the keyboard shortcut command + k to create a link.
           
           样式 | 语句 | 示例 | 效果
           ------------ | ------------- | ------------ | ------------- 
