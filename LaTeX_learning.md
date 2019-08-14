@@ -42,7 +42,7 @@
 
     * 希腊字母：
 
-        ![GreekAlphabet](.\image\GreekAlphabet.PNG)
+        ![GreekAlphabet](./image/GreekAlphabet.PNG)
 
     * 上下标和根号：
 
