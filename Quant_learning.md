@@ -19,6 +19,61 @@
 * 资产定价模型：完全跟市场相关，无风险利率（国债）
     * 单因子模型：市场风险因子
 
-$$ c^2 = \sqrt{a^2 + b^2} $$(2)
-$$ c^2 = b^2 + d^2 $$
+$$r_i=r_F+\beta_i(r_M-r_F)$$
+$$
+r_i: 证券的收益率\\
+r_F: 无风险利率\\
+r_M: 市场收益率\\
+r_M - r_F: 风险溢价\\
+\beta: 某个公司与市场的相关性
+$$
+
+* APT模型：不仅仅跟市场相关，还跟某些特征相关，但并未指出具体特征
+
+* FF三因子模型：市场风险溢价因子、规模因子、价值因子
+
+* FF无因子模型：增加盈利因子和成长因子
+
+* 广义alpha收益 = 公认的风险因子收益 + alpha收益
+
+
+def init(context):
+    # 在context中保存全局变量
+    context.hs300 = "000300.XSHG"
+    context.stock_num = 10
+
+
+# before_trading此函数会在每天策略交易开始前被调用，当天只会被调用一次
+def before_trading(context):
+    
+    q = query(
+        fundamentals.eod_derivative_indicator.market_cap
+        ).filter(
+            fundamentals.stockcode.in_(context.hs300)
+            ).order_by(
+                fundamentals.eod_derivative_indicator.market_cap
+                ).limit(
+                    context.stock_num
+                )
+
+    context.stock_list = get_fundamentals(q).T.index
+
+
+# 你选择的证券的数据更新将会触发此段逻辑，例如日或分钟历史数据切片或者是实时数据切片更新
+def handle_bar(context, bar_dict):
+
+    # bar_dict[order_book_id] 可以拿到某个证券的bar信息
+    # context.portfolio 可以拿到现在的投资组合信息
+    # 使用order_shares(id_or_ins, amount)方法进行落单
+    # TODO: 开始编写你的算法吧！
+    for stock in context.portfolio.positions.keys():
+        if stock not in context.stock_list:
+            order_target_percent(stock, 0)
+    for stock in context.stock_list:
+        order_target_percent(stock, 1.0/len(context.stock_list))
+
+# after_trading函数会在每天交易结束后被调用，当天只会被调用一次
+def after_trading(context):
+    pass
+
 
