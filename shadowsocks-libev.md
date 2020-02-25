@@ -58,7 +58,7 @@ ss-server -c /etc/shadowsocks.json --plugin obfs-server --plugin-opts "obfs=http
 
 后台使用的话使用以下命令
 ```
-nohup ssserver -c /etc/shadowsocks.json  --plugin obfs-server --plugin-opts "obfs=http" > /dev/null 2>&1 &
+nohup ss-server -c /etc/shadowsocks.json  --plugin obfs-server --plugin-opts "obfs=http" > /dev/null 2>&1 &
 ```
 
 ### 3. [windows客户端](https://github.com/shadowsocks/shadowsocks-windows)
