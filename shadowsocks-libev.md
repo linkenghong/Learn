@@ -91,7 +91,7 @@ local-data: "scholar.google.com.hk AAAA 2607:f8b0:4005:80a::200e"
 local-data: "scholar.google.com.sg AAAA 2607:f8b0:4005:80a::200e"
 local-data: "scholar.google.com.tw AAAA 2607:f8b0:4005:80a::200e"
 local-data: "scholar.google.com.uk AAAA 2607:f8b0:4005:80a::200e"
-local-data: "scholar.google.com AAAA 2607:f8b0:4005:80a::200e"
+local-data: "scholar.google.com AAAA 2404:6800:4008:c06::be"
 local-data: "scholar.l.google.com AAAA 2607:f8b0:4005:80a::200e"
 ```
 
