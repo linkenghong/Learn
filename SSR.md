@@ -62,3 +62,16 @@ SSR状态：
 卸载SSR：
 ./shadowsocks-all.sh uninstall
 ```
+
+### 3.修改hosts登谷歌学术
+不一定有效
+在/etc/hosts中修改
+
+```
+## Scholar 学术搜索
+2404:6800:4008:c06::be scholar.google.com
+2404:6800:4008:c06::be scholar.google.com.hk
+2404:6800:4008:c06::be scholar.google.com.tw
+2404:6800:4005:805::200e scholar.google.cn #www.google.cn
+```
+
