@@ -3,7 +3,49 @@
 
 因为在实验室经常出现手机能上vpn，但用实验室网就上不了。具体表现是一开始ping得通，但一开ss就ping不通，过一会又行，估计GFW已经能检测到异常的带ss特征的流量，然后对目的IP进行短暂封闭。
 
-### 1. [shadowsocks-libev](https://github.com/shadowsocks/shadowsocks-libev)
+### 1. Ubuntu升级内核并使用BBR加速
+
+BBR是谷歌开源的拥塞控制算法，使用其可以提高网络速度。内核较高的Ubuntu已经自带BBR，所以建议把Ubuntu的内核升至5.0及以上。升级方法如下：
+
+#### Ubuntu升级内核
+```
+# 查看内核版本号
+uname -sr
+uname -a
+# 下载升级包
+wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.2.4/linux-headers-5.2.4-050204_5.2.4-050204.201907280731_all.deb
+wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.2.4/linux-headers-5.2.4-050204-generic_5.2.4-050204.201907280731_amd64.deb
+wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.2.4/linux-image-unsigned-5.2.4-050204-generic_5.2.4-050204.201907280731_amd64.deb
+wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.2.4/linux-modules-5.2.4-050204-generic_5.2.4-050204.201907280731_amd64.deb
+# 安装
+sudo dpkg -i *.deb
+# 安装后重启
+reboot
+```
+
+在安装过程中可能回出现依赖问题，提示如下：
+```
+linux-headers-5.2.4-050204-generic : Depends: libssl1.1 (>= 1.1.0)
+```
+此时需要升级libssl1.1，命令如下：
+```
+wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.0g-2ubuntu4_amd64.deb
+sudo dpkg -i libssl1.1_1.1.0g-2ubuntu4_amd64.deb
+```
+
+#### 开启BBR
+```
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+sysctl -p
+# 开启BBR
+sysctl net.ipv4.tcp_available_congestion_control
+# 如果返回下面的结果代表开启成功
+net.ipv4.tcp_available_congestion_control = reno cubic bbr
+# 也可以通过lsmod | grep bbr来查看是否开始成功
+```
+
+### 2. [shadowsocks-libev](https://github.com/shadowsocks/shadowsocks-libev)
 
 #### 安装
 
@@ -34,7 +76,7 @@
 
 
 
-### 2. [simple-obfs](https://github.com/shadowsocks/simple-obfs)
+### 3. [simple-obfs](https://github.com/shadowsocks/simple-obfs)
 
 #### 安装
 ```
@@ -61,7 +103,7 @@ ss-server -c /etc/shadowsocks.json --plugin obfs-server --plugin-opts "obfs=http
 nohup ss-server -c /etc/shadowsocks.json  --plugin obfs-server --plugin-opts "obfs=http" > /dev/null 2>&1 &
 ```
 
-### 3. [windows客户端](https://github.com/shadowsocks/shadowsocks-windows)
+### 4. [windows客户端](https://github.com/shadowsocks/shadowsocks-windows)
 #### 客户端下载
 在[releases](https://github.com/shadowsocks/shadowsocks-windows/releases)下下载最新版本，解压即可
 #### 插件下载
@@ -70,7 +112,7 @@ nohup ss-server -c /etc/shadowsocks.json  --plugin obfs-server --plugin-opts "ob
 本地配置与服务器端的需相同，插件程序填`obfs-local`，插件选项填`obfs=http;obfs-host=www.bing.com`
 
 
-### 4. [谷歌学术](https://scholar.google.com/)
+### 5. [谷歌学术](https://scholar.google.com/)
 如果是ss是可以通过在`/etc/hosts` 中加入谷歌学术的IPv6地址来访问的，但由于shadowsocks-libev默认走IPv4，即使修改了hosts也没用。
 
 所以需要通过[Unbound](https://github.com/sjtug/kxsw/wiki/Google-Scholar)，[参考步骤](http://fpcsongazure.top/how-to-fuck-gfw-to-get-a-paper/)如下：
