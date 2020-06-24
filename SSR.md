@@ -63,7 +63,15 @@ SSR状态：
 ./shadowsocks-all.sh uninstall
 ```
 
-### 3.修改hosts登谷歌学术
+### 3. [windows客户端](https://github.com/shadowsocksrr/shadowsocksr-csharp)
+#### 客户端下载
+在[releases](https://github.com/shadowsocksrr/shadowsocksr-csharp/releases)下载最新版本，解压即可
+
+#### 配置
+本地配置与服务器端的需相同，可直接复制配置后的SSR链接
+
+
+### 4.修改hosts登谷歌学术
 不一定有效
 在/etc/hosts中修改
 
